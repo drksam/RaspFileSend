@@ -1,4 +1,5 @@
-# RaspFileSend
+This Works its not 100% but it works great for sending files to raspberry pi when you need to send several files many times.
+#. RaspFileSend
 
 A Windows application that allows you to easily send files to a Raspberry Pi over SSH using the right-click "Send to" context menu.
 
