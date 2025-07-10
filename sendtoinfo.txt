@@ -1,0 +1,30 @@
+# Windows Send To Menu Integration
+
+## How it works:
+
+The Windows "Send to" menu appears when you right-click on files in Windows Explorer. To add custom entries to this menu, you need to place shortcuts or executables in the special "SendTo" folder.
+
+**Send To Folder Location:**
+%APPDATA%\Microsoft\Windows\SendTo\
+
+**For this application:**
+1. The configuration tool creates a batch file that calls our Python script
+2. This batch file is copied to the SendTo folder
+3. When users right-click files and select "Send to Raspberry Pi", Windows passes the selected file paths as command-line arguments to our script
+
+**Command Line Arguments:**
+- Windows automatically passes the full paths of selected files as arguments
+- Our Python script receives these via sys.argv[1:]
+- Multiple files are supported automatically
+
+**Integration Steps:**
+1. User runs raspfilesend_config.py to set up connection
+2. Clicks "Install Send To Menu" which copies the batch file to SendTo folder
+3. Right-click context menu now shows "Send to Raspberry Pi" option
+4. Selecting this option launches raspfilesend_transfer.py with selected files as arguments
+
+**Benefits:**
+- Seamless integration with Windows Explorer
+- No need to open separate applications
+- Works with single or multiple file selections
+- Native Windows user experience
